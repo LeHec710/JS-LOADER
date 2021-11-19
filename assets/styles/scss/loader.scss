@@ -1,0 +1,50 @@
+
+@import "main.scss";
+
+// --------------- LOADER ---------------
+
+.loader-container {
+    transition: all 1s ease;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $black;  
+    opacity: 1;
+    
+    .loader {
+        transition: all 1s ease;
+        opacity: 0;
+        width: 80vw;
+        height: 80vw;
+        background-image: url(../../images/loader.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &.disabled {
+            opacity: 0;
+        }
+        &.enabled {
+            opacity: 1;
+        }
+        
+        @media (min-width: $laptop) {
+            width: 35vw;
+            height: 35vw;
+        }
+        @media (min-width: $tablets) {
+            width: 40vw;
+            height: 40vw;
+        }
+    }
+
+    &.disabled {
+        opacity: 0;
+    }
+    &.enabled {
+        opacity: 1;
+    }
+}
