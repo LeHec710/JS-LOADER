@@ -1,15 +1,77 @@
 
 @import "main.scss";
 
+// --------------- HEADER ---------------
+header {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  
+  @media (max-width: $tablets) {
+    left: 2rem;
+    top: 2rem;
+  }
+}
+
+// --------------- LINKS ---------------
+
+.links {
+  position: absolute;
+
+  .scroll {
+    transform: rotate(-90deg) translateX(25%);
+    transform-origin: left;
+    margin: -2rem 0 0 1rem;
+    
+    .line {
+      display: inline-block;
+      width: 70px;
+      height: 1px;
+      background-color: $white;
+      vertical-align: middle;
+    }
+
+    p {
+      display: inline-block;
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+
 // --------------- INTRO ---------------
 
 .intro {
-  margin: 0 auto;
-  width: 85vw;
+  width: calc(100vw -2rem);
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 1rem;
+  position: relative;
+  
+  @media (max-width: $tablets) {
+    width: calc(100vw - 4rem);
+    max-height: calc(100vh - 4rem);
+    padding: 2rem;
+  }
+
+  .center {
+    width: 55%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    
+    @media (max-width: $tablets) {
+      width: 65%;
+  }
+  } 
 }
 
 // --------------- TITLE ANIMATION ---------------
-
 // glitch effect on title
 
 @mixin glitchCopy {
@@ -23,27 +85,28 @@
 
 .glitch {
   position: relative;
-  animation: glitch-skew 1s infinite linear alternate-reverse;
+  animation: glitch-skew 2s infinite linear alternate-reverse;
+  margin-bottom: -1rem;
 
   &::before {
     @include glitchCopy;
     left: 2px;
-    text-shadow: -2px 0 #ff00c1;
+    text-shadow: -2px 0 #2a2a2a;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
+    animation: glitch-anim 8s infinite linear alternate-reverse;
   }
 
   &::after {
     @include glitchCopy;
     left: -2px;
-    text-shadow: -2px 0 #ff00c1, 2px 2px #ff00c1;
+    text-shadow: -2px 0 #2a2a2a, 2px 2px #2a2a2a;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
+    animation: glitch-anim2 8s infinite linear alternate-reverse;
   }
 }
 
 @keyframes glitch-anim {
-  $steps: 20;
+  $steps: 10;
   @for $i from 0 to $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
@@ -53,7 +116,7 @@
 }
 
 @keyframes glitch-anim2 {
-  $steps: 20;
+  $steps: 10;
   @for $i from 0 to $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
