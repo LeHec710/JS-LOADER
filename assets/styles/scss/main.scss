@@ -3,6 +3,7 @@
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Roboto:wght@400;500;900&display=swap');
 
+
 // variables
 
     // colors
@@ -16,6 +17,10 @@
     $tablets: 768px;
     $laptop: 992px;
     $screen: 1200px;
+    //gaps
+    $big-gap: 4rem;
+    $mid-gap: 2rem;
+    $small-gap: 1rem;
 
 
 // basic settings
@@ -45,6 +50,7 @@ a {
 h1 { 
     font-size: 2.6rem; 
     font-family: $secondary-font;
+    margin-bottom: $big-gap;
     
     @media (max-width: $tablets) {
         font-size: 1.8rem!important;
@@ -53,13 +59,14 @@ h1 {
 h2 { 
     font-size: 1.7rem;
     font-weight: 400;
+    margin-bottom: $big-gap;
     
     @media (max-width: $tablets) {
         font-size: 1.4rem!important;
     }
 }
 h3 { 
-    font-size: 2.1rem; 
+    font-size: 2.1rem;
 }
 h4 { 
     font-size: 1.8rem; 

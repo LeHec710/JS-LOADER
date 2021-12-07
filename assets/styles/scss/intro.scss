@@ -13,15 +13,59 @@ header {
   }
 }
 
-// --------------- LINKS ---------------
+// --------------- SCROLLBAR ---------------
 
+//hide default scrollbar
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+//new scrollbar
+.scrollbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 0rem);
+  padding: 1rem 2rem;
+
+  i {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .line {
+    position: absolute;
+    top: 1.5%;
+    width: 3px;
+    height: 0;
+    border-radius: 500px;
+    background-color: $white;
+  }
+
+  .line#bottom {
+    top: calc(1.5% + 3.1rem); 
+    height: calc(98.5% - 3.1em);
+  }
+}
+
+
+// --------------- LINKS ---------------
 .links {
   position: absolute;
 
   .scroll {
-    transform: rotate(-90deg) translateX(25%);
+    transform: rotate(-90deg);
     transform-origin: left;
-    margin: -2rem 0 0 1rem;
+    margin: -4rem 0 0 1rem;
+    cursor: pointer;
     
     .line {
       display: inline-block;
@@ -29,12 +73,23 @@ header {
       height: 1px;
       background-color: $white;
       vertical-align: middle;
+      transition: width .2s ease;
     }
 
     p {
       display: inline-block;
       font-size: 1rem;
       vertical-align: middle;
+      margin-left: 1rem;
+      transition: margin-left .2s ease;
+    }
+
+    &:hover p {
+      margin-left: .2rem;
+    }
+
+    &:hover .line {
+      width: 90px;
     }
   }
 }
