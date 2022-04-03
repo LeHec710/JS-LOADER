@@ -5,14 +5,15 @@
 
 .loader-container {
     transition: all 1s ease;
+    pointer-events: none;
     position: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $black;  
-    opacity: 1;
+    background-color: $black;
+    z-index: 300;
     
     .loader {
         transition: all 1s ease;

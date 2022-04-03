@@ -1,0 +1,140 @@
+
+@import "main.scss";
+
+// --------------- HEADER ---------------
+header {
+  width: 100%;
+  height: $side-gap;
+  h2 {
+    position: fixed;
+    top: $side-gap;
+    left: $side-gap;
+  }
+
+}
+
+// --------------- SCROLLBAR ---------------
+
+//hide default scrollbar
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar { /* Chrome */
+    display: none;
+  }
+}
+
+//new scrollbar
+.scrollbar-container {
+  position: fixed;
+  top: $side-gap;
+  right: calc(#{$side-gap} - 2em); // .scrollbar padding * 2
+  height: calc(100% - #{$side-gap} * 2);
+  $arrow-height: 5%;
+
+  .scrollbar {
+    position: relative;
+    top: 0; 
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 1em;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-50%);
+      height: $arrow-height;
+      position: absolute;
+      font-size: 2rem;
+      z-index: 10;
+    }
+
+    .line {
+      position: absolute;
+      top: calc(#{$arrow-height} / 2 * -1);
+      width: 3px;
+      border-radius: 500px;
+      background-color: $white;
+    }
+
+    .line#bottom {
+      position: absolute;
+      top: calc(100% - #{$arrow-height} / 2 * -1);
+      height: calc(100% - 2rem);
+      transform: rotate(-180deg);
+      transform-origin: top;
+    }
+  }
+}
+
+// --------------- LINKS ---------------
+.links {
+  $scroll-size: 40px;
+  $scroll-height: 20vh;
+  margin: 0;
+  height: 1rem;
+  
+  .scroll {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: $side-gap;
+    left: $side-gap;
+    height: $scroll-size;
+    transform: rotate(-90deg) translateY(50%);
+    margin-bottom: calc(#{$scroll-size} * -.5);
+    transform-origin: left;
+
+    .line {
+      display: inline-block;
+      width: $scroll-height;
+      height: 3px;
+      background-color: $white;
+      vertical-align: middle;
+      border-radius: 500px;
+      transition: width .2s ease;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      font-size: 1.5rem;
+      vertical-align: middle;
+      margin-left: 1rem;
+      transition: margin-left .2s ease;
+    }
+
+    &:hover p {
+      margin-left: 3rem;
+    }
+
+    &:hover .line {
+      width: calc(#{$scroll-height * 1.6});
+    }
+  }
+  
+  .socials {
+    position: fixed;
+    bottom: $side-gap;
+    left: calc(#{$scroll-size} + #{$side-gap});
+    display: flex;
+    margin-left: 1em;
+
+    img {
+      width: 1.8rem;
+      transition: all .5s ease;
+
+      &:hover {
+        transform: translateY(-30%);
+      }
+    }
+    img:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}

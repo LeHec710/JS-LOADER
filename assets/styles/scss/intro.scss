@@ -1,190 +1,21 @@
 
 @import "main.scss";
 
-// --------------- HEADER ---------------
-header {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  
-  @media (max-width: $tablets) {
-    left: 2rem;
-    top: 2rem;
-  }
-}
-
-// --------------- SCROLLBAR ---------------
-
-//hide default scrollbar
-body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-//new scrollbar
-.scrollbar {
-  position: fixed;
-  right: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  min-height: calc(100vh - 0rem);
-  padding: 1rem 2rem;
-
-  i {
-    position: absolute;
-    font-size: 2rem;
-    z-index: 10;
-    cursor: pointer;
-  }
-
-  .line {
-    position: absolute;
-    top: 1.5%;
-    width: 3px;
-    height: 0;
-    border-radius: 500px;
-    background-color: $white;
-  }
-
-  .line#bottom {
-    top: calc(1.5% + 3.1rem); 
-    height: calc(98.5% - 3.1em);
-  }
-}
-
-
-// --------------- LINKS ---------------
-.links {
-  position: absolute;
-
-  .scroll {
-    transform: rotate(-90deg);
-    transform-origin: left;
-    margin: -4rem 0 0 1rem;
-    cursor: pointer;
-    
-    .line {
-      display: inline-block;
-      width: 70px;
-      height: 1px;
-      background-color: $white;
-      vertical-align: middle;
-      transition: width .2s ease;
-    }
-
-    p {
-      display: inline-block;
-      font-size: 1rem;
-      vertical-align: middle;
-      margin-left: 1rem;
-      transition: margin-left .2s ease;
-    }
-
-    &:hover p {
-      margin-left: .2rem;
-    }
-
-    &:hover .line {
-      width: 90px;
-    }
-  }
-}
-
 
 // --------------- INTRO ---------------
 
 .intro {
-  width: calc(100vw -2rem);
-  min-height: 100vh;
-  max-height: 100vh;
-  padding: 1rem;
-  position: relative;
-  
-  @media (max-width: $tablets) {
-    width: calc(100vw - 4rem);
-    max-height: calc(100vh - 4rem);
-    padding: 2rem;
-  }
-
-  .center {
-    width: 55%;
-    height: 100vh;
+    width: 60%;
+    min-height: 100vh;
+    text-align: center;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     flex-direction: column;
+    pointer-events: all;
     
     @media (max-width: $tablets) {
-      width: 65%;
-  }
-  } 
-}
-
-// --------------- TITLE ANIMATION ---------------
-// glitch effect on title
-
-@mixin glitchCopy {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch {
-  position: relative;
-  animation: glitch-skew 2s infinite linear alternate-reverse;
-  margin-bottom: -1rem;
-
-  &::before {
-    @include glitchCopy;
-    left: 2px;
-    text-shadow: -2px 0 #2a2a2a;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 8s infinite linear alternate-reverse;
-  }
-
-  &::after {
-    @include glitchCopy;
-    left: -2px;
-    text-shadow: -2px 0 #2a2a2a, 2px 2px #2a2a2a;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 8s infinite linear alternate-reverse;
-  }
-}
-
-@keyframes glitch-anim {
-  $steps: 10;
-  @for $i from 0 to $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
-      transform: skew((random(100) / 100) + deg);
+      width: 80%;
     }
   }
-}
-
-@keyframes glitch-anim2 {
-  $steps: 10;
-  @for $i from 0 to $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
-      transform: skew((random(100) / 100) + deg);
-    }
-  }
-}
-
-@keyframes glitch-skew {
-  $steps: 10;
-  @for $i from 0 to $steps {
-    #{percentage($i*(1/$steps))} {
-      transform: skew((random(10) - 5) + deg);
-    }
-  }
-}

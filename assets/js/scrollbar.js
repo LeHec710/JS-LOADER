@@ -5,20 +5,14 @@ topline = document.querySelector('.scrollbar .line#top');
 bottomline = document.querySelector('.scrollbar .line#bottom');
 
 let totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-let can_drag = false;
 
 // drag arrow to scroll
 arrow.addEventListener('mousedown', function(event) {
-    can_drag = true;
     if (event.which == 1) {
       addEventListener('mousemove', moved);
       event.preventDefault(); // Prevent selection
     }
 });
-
-arrow.addEventListener('mouseup', () => {
-    can_drag = false;
-})
   
 function buttonPressed(event) {
     // not all browsers support event.which for mousemove, but
@@ -31,6 +25,7 @@ function buttonPressed(event) {
 
 function moved(e) {
     let newScroll = e.clientY / scrollbar.offsetHeight * totalHeight;
+    
     window.scrollTo({
         top: newScroll,
     });
@@ -38,8 +33,6 @@ function moved(e) {
         removeEventListener('mousemove', moved);
     }
 }
-
-
 
 // scroll animation
 window.addEventListener('scroll', ()  => {
@@ -58,12 +51,14 @@ scrollbar.addEventListener('click', (e) => {
 
 // function to scroll to position
 function scrollToX(x) {
-    x =  Math.min(Math.max(x, 1.5), 95);
+    // equal to the side gap in % in main.scss
+    x =  Math.min(Math.max(x, 0), 100);
     // positionning the arrow
     arrow.style.top = x + "%";
-    // set top line height
-    topline.style.height = "calc("+ x +"% - 2rem)";
-    // set bottom line height
-    bottom.style.top = "calc("+ x + "% + 3.1rem";
-    bottomline.style.height = "calc("+ (100 - x) +"% - 3.1em)";
+    topline.style.height = "calc(" + x + "% + -2rem)";
+    bottomline.style.height = "calc(100% - " + x + "% - 2rem)";
 }
+
+function isTouchScreendevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints;      
+};
