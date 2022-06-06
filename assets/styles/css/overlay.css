@@ -7,13 +7,16 @@
   outline: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url("../../images/background2.gif");
   font-size: 22px;
   color: #fff;
   font-family: "Roboto", sans-serif;
   cursor: none;
-  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
