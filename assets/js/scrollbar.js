@@ -16,7 +16,6 @@ window.addEventListener("scroll", () => {
     (document.documentElement.scrollTop /
       document.documentElement.clientHeight) *
     100;
-  console.log(progress);
   arrow.style.top = `${scrollToX(progress)}`;
   scrollToX(progress);
 });
