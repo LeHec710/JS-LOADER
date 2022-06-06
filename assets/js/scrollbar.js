@@ -6,38 +6,12 @@ bottomline = document.querySelector('.scrollbar .line#bottom');
 
 let totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-// drag arrow to scroll
-arrow.addEventListener('mousedown', function(event) {
-    if (event.which == 1) {
-      addEventListener('mousemove', moved);
-      event.preventDefault(); // Prevent selection
-    }
-});
-  
-function buttonPressed(event) {
-    // not all browsers support event.which for mousemove, but
-    // all major browsers support buttons or which
-    if (event.buttons == null)
-      return event.which != 0;
-    else
-      return event.buttons != 0;
-}
-
-function moved(e) {
-    let newScroll = e.clientY / scrollbar.offsetHeight * totalHeight;
-    
-    window.scrollTo({
-        top: newScroll,
-    });
-    if(!buttonPressed(e)) {
-        removeEventListener('mousemove', moved);
-    }
-}
-
 // scroll animation
 window.addEventListener('scroll', ()  => {
-    let progress = (document.documentElement.scrollTop / totalHeight) * 100;
-    arrow.style.top = `${scrollToX(progress)}%`;
+    let progress = (document.documentElement.scrollTop / document.documentElement.clientHeight) * 100;
+    console.log(progress);
+    arrow.style.top = `${scrollToX(progress)}`
+    scrollToX(progress)
 })
 
 // click to scroll

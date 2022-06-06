@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="assets/styles/css/parcours.css">
 
     <!------------------------ JS ------------------------>
-    <script src="assets/js/main.js" defer></script>
     <script src="assets/js/loader.js" defer></script> 
     <script src="assets/js/cursor.js" defer></script>
     <script src="assets/js/scrollbar.js" defer></script>
@@ -35,45 +34,49 @@
     <div class="cursor" id="circle"></div>
     <div class="cursor" id="pointer"></div>
 
-    <!-- scrollbar -->
-    <div class="scrollbar-container">    
-        <div class="scrollbar">
-            <div id="top" class="line"></div>
-            <i class="fas fa-arrow-down" id="scroll-arrow"></i>
-            <div id="bottom" class="line"></div>
+    <!-- content -->
+    <div class="content">
+        <!-- scrollbar -->
+        <div class="scrollbar-container">    
+            <div class="scrollbar">
+                <div id="top" class="line"></div>
+                <i class="fas fa-arrow-down" id="scroll-arrow"></i>
+                <div id="bottom" class="line"></div>
+            </div>
+        </div>
+    
+        <!-- header -->
+        <header>
+            <h2 id="main-title">Hector b.</h2>
+        </header>
+    
+        <!-- intro links and scrolldown button -->
+        <div class="links">
+            <div class="scroll">
+                <div class="line"></div>
+                <p>scroll down</p>
+            </div>
+            <div class="socials">
+                <img src="assets/images/insta.png" alt="">
+                <img src="assets/images/mail.png" alt="">
+                <img src="assets/images/phone.png" alt="">
+            </div>
+        </div>
+    
+        <!-- page content -->
+        <div class="container">
+    
+            <!-- intro -->
+            <div class="intro">
+                <h1 class="title glitch" data-text="BONJOUR A TOUS" title="BONJOUR A TOUS">BONJOUR A TOUS</h1>
+                <p>
+                    Voici un petit site ou je me suis amusé à faire une scrollbar, un chargement au lancement du site et un curseur personnalisé. Cela n'est malheureusement pas fonctionnel sur mobile pour l'instant.
+                </p>
+                <a href="#parcours"><button class="border white">En savoir plus</button></a>
+            </div>
+    
         </div>
     </div>
 
-    <!-- header -->
-    <header>
-        <h2 id="main-title">Hector b.</h2>
-    </header>
-
-    <!-- intro links and scrolldown button -->
-    <div class="links">
-        <div class="scroll">
-            <div class="line"></div>
-            <p>scroll down</p>
-        </div>
-        <div class="socials">
-            <img src="assets/images/insta.png" alt="">
-            <img src="assets/images/mail.png" alt="">
-            <img src="assets/images/phone.png" alt="">
-        </div>
-    </div>
-
-    <!-- page content -->
-    <div class="container">
-
-        <!-- intro -->
-        <div class="intro">
-            <h1 class="title glitch" data-text="BONJOUR A TOUS" title="BONJOUR A TOUS">BONJOUR A TOUS</h1>
-            <p>
-                Voici un petit site ou je me suis amusé à faire une scrollbar, un chargement au lancement du site et un curseur personnalisé. Cela n'est malheureusement pas fonctionnel sur mobile pour l'instant.
-            </p>
-            <a href="#parcours"><button class="border white">En savoir plus</button></a>
-        </div>
-
-    </div>
 </body>
 </html>
