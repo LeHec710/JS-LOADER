@@ -1,0 +1,161 @@
+/* all projects menu */
+.all-projects-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: var(--white);
+    transition: width .5s ease;
+    width: 100vw;
+    overflow: auto;
+}
+.all-projects-container.hidden {
+    width: 10vw;
+    padding: 0;
+    overflow: hidden;
+    transition: width .5s ease .5s;
+}
+.all-projects {
+    height: 100%;
+    width: 85%;
+    
+    transition: opacity .3s ease .5s;
+    opacity: 1;
+    color: inherit;
+    background: inherit;
+
+}
+.all-projects-container.hidden .all-projects {
+    transition: opacity .3s ease;
+    opacity: 0;
+}
+.all-projects > .project {
+    display: inline-block;
+    position: initial;
+    transform: scale(.8);
+    height: min(55vh, 50em);
+    width: 50%;
+    min-width: 50em;
+    margin-bottom: 4em;
+    z-index: 500;
+    overflow: initial;
+    margin-bottom: 15vh;
+} 
+.all-projects .project-title {
+    width: 120%;
+    word-wrap: normal;
+}
+.all-projects .project-info {
+    left: 0!important;
+}
+.all-projects .project-image-overlay {
+    right: 0!important;
+} 
+.all-projects .project .project-info .project-description {
+    width: 45%;
+    font-size: 1.8em;
+}
+.all-projects .project .project-info .project-link {
+    font-size: 2.1em;
+    margin-top: 3vh;
+}
+
+/* single project (landing page) */
+.project {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.project .project-image-overlay {
+    position: absolute;
+    width: 50%;
+    height: min(60vh, 60em);
+    right: var(--first-line);
+    background-color: var(--main);
+    z-index: -1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project .project-image-overlay .project-image {
+    max-width: 80%;
+}
+
+.project .project-info {
+    position: absolute;
+    left: calc(var(--first-line) + 3em);
+    right: var(--first-line);
+}
+.project .project-info .project-title {
+    font-size: 6em;
+}
+.project .project-info .project-category {
+    text-align: left;
+    width: 50%;
+
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: var(--semibold);
+    letter-spacing: .2em;
+    margin-left: 3em;
+}
+.project .project-info .project-description {
+    margin-top: 3vh;
+    width: 22%;
+
+    font-size: 1.4em;
+}
+.project .project-info .project-link {
+    pointer-events: auto;
+    margin-top: 6vh;
+    transition: margin-left .3s ease;
+    
+    font-size: 1.6em;
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+} .project .project-info .project-link:hover {
+    margin-left: 1em;
+    border-bottom-color: transparent;
+}
+
+/* animations */
+
+.project.fadeOut * {
+    transition: transform .8s ease, opacity .3s ease .3s;
+    transform: translateY(-120%);
+    opacity: 0;
+}
+.project.fadeOut .project-image-overlay {
+    transition-delay: 0;
+}
+.project.fadeOut *:not(.project-image-overlay) {
+    transition-delay: .5s;
+}
+.project.fadeOut .project-link {
+    transition: transform .8s ease, opacity .3s ease .3s, margin-left .3s ease;
+    transition-delay: .5s;
+}
+
+.project.fadeIn * {
+    transition: transform .8s ease, opacity .3s ease .3s;
+    transform: translateY(0);
+    opacity: 1;
+}
+.project.fadeIn .project-image-overlay {
+    transition-delay: .5s;
+}
+.project.fadeIn *:not(.project-image-overlay) {
+    transition-delay: 0;
+}
+.project.fadeOut .project-link {
+    transition: transform .8s ease, opacity .3s ease .3s, margin-left .3s ease;
+    transition-delay: .5s;
+}
