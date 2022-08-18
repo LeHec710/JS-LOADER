@@ -1,2 +1,2 @@
-# personnal
-making my personnal website 
+Petit site simple avec quelques animations en vanilla JS,
+premières approches avec SASS.
